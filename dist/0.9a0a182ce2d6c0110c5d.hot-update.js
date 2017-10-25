@@ -1,0 +1,1 @@
+webpackHotUpdate(0,{15:function(t,e,r){"use strict";var a=function(){var t=this;t.$createElement;return t._self._c,t._m(0)},n=[function(){var t=this,e=t.$createElement,r=t._self._c||e;return r("div",{attrs:{id:"app"}},[r("h1",[t._v("24")])])}];a._withStripped=!0;var c={render:a,staticRenderFns:n};e.a=c,t.hot.accept(),t.hot.data&&r(4).rerender("data-v-4443a29f",c)}});
