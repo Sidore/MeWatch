@@ -18,11 +18,10 @@ export default {
 
 <template>
 
-    <div>
+    <div class="mainContainer">
 
         <links/>
         <router-view></router-view>
-
     </div>
 
 </template>
@@ -32,6 +31,13 @@ export default {
 body {
   padding: 0;
   margin: 0;
+  background: #E0E0E0;
+
+  .mainContainer {
+    background: #E0E0E0;
+    height: 100vh;
+  }
+
 }
 
 #app {
