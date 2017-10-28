@@ -25,11 +25,11 @@
 
         <div class="link">
 
-            <img v-bind:src="logo" width="20" height="20"/>
+            <img :src="logo" width="20" height="20"/>
 
         </div>
 
-        <router-link v-for="item in items" :to="item.path" v-bind:key="item.path" class="link">
+        <router-link v-for="item in items" :to="item.path" :key="item.path" class="link">
             <span>{{item.name}}</span>
         </router-link> 
     </div>

@@ -39,15 +39,26 @@ const config = {
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    "file-loader"
-                ]
+                    {
+                      loader: 'url-loader',
+                      options: {
+                        limit: 10000,
+                        fallback : "file-loader"
+                      }
+                    }]
             },
+
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
                 use: [
-                    "file-loader"
-                ]
-            }
+                    {
+                      loader: 'url-loader',
+                      options: {
+                        limit: 10000,
+                        fallback : "file-loader"
+                      }
+                    }]
+              }
         ]
     },
 

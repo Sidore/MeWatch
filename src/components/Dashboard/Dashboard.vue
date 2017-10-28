@@ -1,7 +1,15 @@
 <script>
+import warn from "../Warning/Warning"
+
 export default {
+    components : {
+    
+        "vs-warn" : warn
+    
+    },
     data : function() {
         return {
+            
             warnings : [
                 { type : "error" , message : "lol kek cheburek" },
                 { type : "warning" , message : "kek lol orbidol" },
@@ -22,9 +30,13 @@ export default {
 
     <div class="container">
 
-        <div v-for="warn in warnings" :key="warn" class="alert" :class="warn.type">
+        <!-- <div v-for="warn in warnings" :key="warn" class="alert" :class="warn.type">
             {{warn.message}}
-        </div>
+        </div> -->
+
+    <vs-warn v-for="warn in warnings" :key="warn" :warn="warn" >
+        
+    </vs-warn>
 
         <div class="row">
 
