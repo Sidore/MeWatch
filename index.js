@@ -8,6 +8,8 @@ import Dashboard from "./src/components/Dashboard/Dashboard"
 
 import VueRouter from 'vue-router'
 
+import "font-awesome/css/font-awesome"
+
 Vue.use(VueRouter)
 
 const routes = [
