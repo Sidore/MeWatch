@@ -7,6 +7,18 @@ export default {
         "vs-warn" : warn
     
     },
+
+    methods : {
+
+        removeHandler : function(item) {
+
+            let index = this.warnings.indexOf(item);
+            this.warnings.splice(index,1);
+            
+        }
+
+    },
+
     data : function() {
         return {
             
@@ -34,7 +46,7 @@ export default {
             {{warn.message}}
         </div> -->
 
-    <vs-warn v-for="warn in warnings" :key="warn" :warn="warn" >
+    <vs-warn v-for="(warn, index) in warnings" :key="warn" :warn="warn" @remove="removeHandler" :hidein="500 * index + 1000">
         
     </vs-warn>
 
@@ -57,7 +69,7 @@ export default {
 <style lang="scss">
 
     .container {
-        margin: 15px;
+        margin: 15px 15px 0;
         display: flex;
         align-content: center;
         flex-direction: column;
@@ -65,7 +77,7 @@ export default {
     }
 
     .block {
-        margin: 0 0 15px;
+        // margin: 0 0 15px;
         padding: 15px;
         background: #FAFAFA;
         color: #212121;

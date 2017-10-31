@@ -1,10 +1,11 @@
 <template>
   
-    
-    <div class="alert" :class="warn.type">
-         <i :class="classes[warn.type]"></i>   {{warn.message}}
-            <slot></slot>
-    </div>
+    <transition name="fade">
+        <div class="alert" :class="warn.type" @dblclick="remove">
+            <i :class="classes[warn.type]"></i>   {{warn.message}}
+                <slot></slot>
+        </div>
+    </transition>
 
 </template>
 
@@ -13,7 +14,7 @@
 
 export default {
     
-    props : ["warn"],
+    props : ["warn","hidein"],
     data(){
         return {
             classes : {
@@ -23,7 +24,22 @@ export default {
                 info : "fa fa-info-circle",
                 simple : "fa fa-comment"
 
-            }
+            },
+            timeout : 0
+        }
+    },
+    methods : {
+        remove : function(){
+            this.$emit('remove', this.warn);
+        }
+    },
+
+    created(){
+        if (this.hidein && (!isNaN(this.hidein) || this.hidein === "slow" || this.hidein === "fast")) {
+            
+            let time = !isNaN(this.hidein) ? Number(this.hidein) : this.hidein === "slow" ? 10000 : 4000;
+            
+            this.timeout = setTimeout(this.remove,time)
         }
     }
 
@@ -42,6 +58,10 @@ export default {
         color: white;
         background: #03A9F4;
         border-top: 4px solid #0288D1;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
         
 
         i {
